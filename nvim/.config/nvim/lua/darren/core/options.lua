@@ -5,6 +5,9 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 
+-- for LSP highlight
+opt.updatetime = 100
+
 -- tabs & indentations
 opt.tabstop = 4 -- spaces for tabs (prettier default)
 opt.shiftwidth = 4 -- spaces for indent width
