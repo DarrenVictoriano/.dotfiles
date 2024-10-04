@@ -90,6 +90,7 @@ dotfiles_list=(
   "tmux:.tmux.conf"
   "bat:.config/bat"
   "nvim:.config/nvim"
+  "kitty:.config/kitty"
 )
 
 clone_dotfiles
