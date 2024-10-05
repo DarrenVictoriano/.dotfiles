@@ -63,6 +63,7 @@ casks=(
   obsidian
   raycast
   bitwarden
+  nikitabobko/tap/aerospace
   # karabiner-elements  # this requires a sudo installtion
   # Add more casks here
 )
