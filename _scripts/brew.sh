@@ -57,6 +57,7 @@ casks=(
   miniconda
   hiddenbar
   font-meslo-for-powerlevel10k
+  font-meslo-lg-nerd-font
   font-fira-code-nerd-font
   itsycal
   lulu
