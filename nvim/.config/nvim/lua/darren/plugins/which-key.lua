@@ -49,6 +49,7 @@ return {
 			-- { '<leader>d', group = '[D]ocument' },
 			{ "<leader>e", group = "[E]xplore" },
 			{ "<leader>f", group = "[F]ind" },
+			{ "<leader>h", group = "[H]unk Gitsigns" },
 			{ "<leader>w", group = "[W]indows" },
 			{ "<leader>t", group = "[T]abs" },
 			{ "<leader>c", group = "[C]ommands" },

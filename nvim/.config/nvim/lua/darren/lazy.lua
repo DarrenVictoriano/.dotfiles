@@ -23,4 +23,8 @@ require("lazy").setup({ { import = "darren.plugins" }, { import = "darren.plugin
 	change_detection = {
 		notify = false,
 	},
+	rocks = {
+		enabled = false,
+		hererocks = false,
+	},
 })
