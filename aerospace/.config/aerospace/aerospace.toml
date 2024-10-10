@@ -41,7 +41,7 @@ key-mapping.preset = 'qwerty'
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = ['move-mouse window-lazy-center']
+# on-focus-changed = ['move-mouse window-lazy-center']
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
@@ -87,6 +87,10 @@ outer.right =      5
 #     activate
 # end tell'
 # '''
+
+# Disable MacOS default hide command
+cmd-h = [] # Disable "hide application"
+cmd-alt-h = [] # Disable "hide others"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
@@ -201,12 +205,48 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-[[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = "move-node-to-workspace T"
+# auto move to workspace T
+# [[on-window-detected]]
+# if.app-id = 'com.googlecode.iterm2'
+# run = 'move-node-to-workspace T'
 
+# auto move to workspace C
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
-run = "move-node-to-workspace C"
+run = 'move-node-to-workspace C'
 
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace C'
 
+# auto move to workspace A
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace A'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+run = 'move-node-to-workspace A'
+
+# auto move to workspace S
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.pycharm.ce'
+run = 'move-node-to-workspace S'
+
+# auto move to workspace D
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'move-node-to-workspace D'
+
+[[on-window-detected]]
+if.app-id = 'us.zoom.xos'
+run = 'move-node-to-workspace D'
+
+# make finder float
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.googlecode.iterm2'
+run = 'layout floating'
