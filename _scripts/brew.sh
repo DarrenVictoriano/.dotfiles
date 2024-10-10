@@ -40,6 +40,8 @@ packages=(
   zoxide    # better cd
   node      # node for nvm
   jesseduffield/lazygit/lazygit  # Lazygit for nvim
+  shellcheck  # for bash lsp
+  shfmt     # for bash lsp
   tmux
   nvim
   wget

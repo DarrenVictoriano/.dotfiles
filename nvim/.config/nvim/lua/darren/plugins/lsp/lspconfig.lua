@@ -164,6 +164,21 @@ return {
 					},
 				})
 			end,
+			["pyright"] = function()
+				-- configure lua server (with special settings)
+				lspconfig["pyright"].setup({
+					capabilities = capabilities,
+					settings = {
+						python = {
+							analysis = {
+								autoSearchPaths = true,
+								diagnosticMode = "openFilesOnly",
+								useLibraryCodeForTypes = true,
+							},
+						},
+					},
+				})
+			end,
 		})
 	end,
 }
