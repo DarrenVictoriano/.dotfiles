@@ -24,8 +24,8 @@ keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without yanking" })
 keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })
 
 -- increment/decrement numbers
-keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
-keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
+-- keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
+-- keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 
 -- window management
 keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
