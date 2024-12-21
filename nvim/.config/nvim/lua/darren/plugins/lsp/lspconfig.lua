@@ -90,7 +90,7 @@ return {
 
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
-				opts.desc = "Smart [R]ename"
+				opts.desc = "Smart [R]ename Variable"
 				keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
 
 				-- Execute a code action, usually your cursor needs to be on top of an error
