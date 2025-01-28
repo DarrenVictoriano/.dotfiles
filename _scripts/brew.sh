@@ -53,7 +53,9 @@ packages=(
 
 # List of casks to install
 casks=(
-  iterm2
+  # iterm2
+  ghostty
+  kitty
   visual-studio-code
   alt-tab
   miniconda

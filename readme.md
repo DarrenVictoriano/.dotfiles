@@ -8,17 +8,23 @@ This script automates the installation and configuration of my development envir
 - Cloning and stowing my dotfiles repository
 
 ## Prerequisites
- - Xcode Commandline Tool
- - iTerm2
+
+- Xcode Commandline Tool
+- ~~iTerm2~~
 
 ## Installation
+
 Run this command in your terminal:
+
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/DarrenVictoriano/.dotfiles/main/install.sh)"
 ```
 
 ### bat theme
-we may need to rebuild the themes for bat
+
+you may need to rebuild the themes for bat
+
 ```
 bat cache --build
 ```
+

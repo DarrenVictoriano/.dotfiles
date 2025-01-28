@@ -1,27 +1,27 @@
 #!/bin/sh
 
 install_oh_my_zsh() {
-  if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "Installing oh-my-zsh..."
-    # the --unattended flag is to prevent oh-my-zsh installation script to create a new session.
-    # if we dont do this, it will stop our installation script
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-    echo "oh-my-zsh is installed."
-  else
-    echo "oh-my-zsh is already installed."
-  fi
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+        echo "Installing oh-my-zsh..."
+        # the --unattended flag is to prevent oh-my-zsh installation script to create a new session.
+        # if we dont do this, it will stop our installation script
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+        echo "oh-my-zsh is installed."
+    else
+        echo "oh-my-zsh is already installed."
+    fi
 }
 
 install_plugin() {
-  local git_clone_command=$1
-  # Check if the ~/.oh-my-zsh directory exists
-  if [ -d "$HOME/.oh-my-zsh" ]; then
-    echo "Installing: $git_clone_command"
-    eval "$git_clone_command"
-    echo "Plugin/theme installed."
-  else
-    echo "~/.oh-my-zsh directory does not exist. Cannot install powerlevel10k."
-  fi
+    local git_clone_command="$1"
+    # Check if the ~/.oh-my-zsh directory exists
+    if [ -d "$HOME/.oh-my-zsh" ]; then
+        echo "Installing: $git_clone_command"
+        eval "$git_clone_command"
+        echo "Plugin/theme installed."
+    else
+        echo "$HOME/.oh-my-zsh directory does not exist. Cannot install powerlevel10k."
+    fi
 }
 
 # Execute functions

@@ -209,35 +209,30 @@ alt-shift-l = ['join-with right', 'mode main']
 # Find AppID using the command
 # aerospace list-apps
 
-# auto move to workspace T
-# [[on-window-detected]]
-# if.app-id = 'com.googlecode.iterm2'
-# run = 'move-node-to-workspace T'
-
-# auto move to workspace C
+# auto move to workspace F
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
-run = 'move-node-to-workspace D'
-
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace D'
-
-# auto move to workspace A
-[[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace F'
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.Outlook'
+if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace F'
 
 # auto move to workspace S
 [[on-window-detected]]
-if.app-id = 'com.jetbrains.pycharm.ce'
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace S'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
 run = 'move-node-to-workspace S'
 
 # auto move to workspace D
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.pycharm.ce'
+run = 'move-node-to-workspace D'
+
+# auto move to workspace A
 [[on-window-detected]]
 if.app-id = 'com.microsoft.teams2'
 run = 'move-node-to-workspace A'
@@ -251,6 +246,10 @@ if.app-id = 'com.openai.chat'
 run = 'move-node-to-workspace A'
 
 [[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace A'
+
+[[on-window-detected]]
 if.app-id = 'com.openai.chat'
 run = 'layout tiling'
 
@@ -261,4 +260,16 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.googlecode.iterm2'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.adobe.Reader'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
 run = 'layout floating'

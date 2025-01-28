@@ -22,7 +22,7 @@ install_from_appstore() {
 app_list=(
     "302584613:Kindle"
     "1018301773:AdBlock Pro"
-    "441258766:Magnet"
+    # "441258766:Magnet"
     "1352778147:Bitwarden"
 )
 

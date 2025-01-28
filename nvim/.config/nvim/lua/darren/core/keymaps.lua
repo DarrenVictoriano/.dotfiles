@@ -17,7 +17,7 @@ keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set("n", "<leader>ch", ":nohl<CR>", { desc = "Clear search [H]ighlights" })
 
 -- delete single character without copying into register
--- keymap.set("n", "x", '"_x')
+keymap.set("n", "x", '"_x')
 
 -- greatest remap ever
 keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without yanking" })
