@@ -188,6 +188,21 @@ return {
 					},
 				})
 			end,
+			["yamlls"] = function()
+				lspconfig["yamlls"].setup({
+					capabilities = capabilities,
+					settings = {
+						yaml = {
+							schemas = {
+								["https://squidfunk.github.io/mkdocs-material/schema.json"] = "mkdocs.yml",
+							},
+							validate = true,
+							hover = true,
+							completion = true,
+						},
+					},
+				})
+			end,
 		})
 	end,
 }

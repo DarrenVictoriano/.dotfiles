@@ -39,6 +39,7 @@ return {
 				"robotframework_ls",
 				"bashls", -- requires rust
 				"marksman",
+				"yamlls",
 				-- "csharp_ls",
 				-- "gdscript",
 				-- "gopls",
