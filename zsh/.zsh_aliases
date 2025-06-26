@@ -1,0 +1,22 @@
+#!/bin/bash
+
+alias dotfiles="code ~/.dotfiles"
+alias zshrc="code ~/.dotfiles/zsh"
+alias p10krc="code ~/.dotfiles/p10k/.p10k.zsh"
+alias ohmyzsh="code ~/.oh-my-zsh"
+alias cs='code /Users/dxv1220/code/cheat'
+alias pq='parquet-tools'
+alias speedtest='conda activate py310; curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
+alias pretty='python -m json.tool'
+alias formals='cd /Users/dxv1220/code/Data_Platform_Validation'
+alias vnv='conda activate py38; python /Users/dxv1220/code/script/main.py'
+alias ai='conda activate open-webui; cd /Users/dxv1220/code/open-webui/backend; git checkout change_port; bash start.sh'
+alias udp='conda activate py38; python /Users/dxv1220/code/Data_Platform_Validation/udp_script.py'
+alias vim='nvim'
+alias gal='gcloud auth login'
+alias gaal='gcloud auth application-default login'
+alias compile_this='mcs -reference:API/Dexcom.Agent.Core.dll,API/Dexcom.Receiver.Secure.dll,Authenticators/BouncyCastle.Crypto.dll,Authenticators/BouncyCastleAuthenticator.dll,HelloG7/packages/Newtonsoft.Json.13.0.1/lib/netstandard2.0/Newtonsoft.Json.dll,/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.5/System.Data.dll,/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.8-api/Facades/netstandard.dll HelloG7/Program.cs'
+alias generatebin='conda activate py38_dap; python /Users/dxv1220/code/script/main.py generate-bin'
+alias icat='kitty icat'
+alias kvd='kubevpn disconnect --all'
+alias kswitchcontext='kubectl config use-context $(kubectl config get-contexts -o name | fzf)'
