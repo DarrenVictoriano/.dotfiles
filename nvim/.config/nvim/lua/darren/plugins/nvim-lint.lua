@@ -10,7 +10,7 @@ return {
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
 			-- svelte = { "eslint_d" },
-			python = { "mypy", "pylint" },
+			python = { "pylint" },
 			-- TODO: add other lint
 			-- robot
 			-- clang
