@@ -1,9 +1,10 @@
-theme = catppuccin-macchiato
-
+shell-integration = zsh
 font-family = "MesloLGS NF"
+theme = catppuccin-macchiato
 
 cursor-style = block
 cursor-style-blink = true
+shell-integration-features = no-cursor
 
 window-width = 115
 window-height = 45
@@ -14,3 +15,4 @@ macos-titlebar-style = hidden
 macos-titlebar-proxy-icon = hidden
 
 keybind = cmd+backspace=esc:w
+keybind = cmd+r=reload_config
