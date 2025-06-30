@@ -91,8 +91,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
-source $ZSH/oh-my-zsh.sh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 
 ## Parse kubectl promt to only display the context
@@ -149,6 +147,7 @@ export BAT_THEME="Catppuccin Macchiato"
 alias refresh='source ~/.zshrc'
 alias ls='eza --icons=always'
 alias cat='bat'
+alias icat='kitty icat'
 alias cd='z'
 alias k="kubectl"
 alias del="trash"
