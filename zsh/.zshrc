@@ -142,7 +142,7 @@ export FZF_DEFAULT_OPTS=" \
 export BAT_THEME="Catppuccin Macchiato"
 
 
-# Alias
+#### Alias ####
 # For a full list of active aliases, run `alias`.
 alias refresh='source ~/.zshrc'
 alias ls='eza --icons=always'
@@ -159,7 +159,7 @@ alias ftldr='compgen -c | fzf | xargs tldr'
 alias vim='nvim'
 alias kswitchcontext='kubectl config use-context $(kubectl config get-contexts -o name | fzf)'
 
-# Functions
+#### Functions ####
 function pandoc_md_to_pdf () {
     # https://github.com/Wandmalfarbe/pandoc-latex-template?tab=readme-ov-file
     pandoc "$1" -o "$2" --verbose --template=eisvogel --from markdown --listings -V listings-no-page-break -V listings-disable-line-numbers
@@ -225,7 +225,14 @@ function szf() {
         echo "Git plugin file not found."
     fi
 }
+### End of Functions ####
 
+# Add custom Alias and Functions if exist
+[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
+[ -f ~/.zsh_functions ] && source ~/.zsh_functions
+
+
+#### FZF customs ####
 # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
@@ -252,6 +259,7 @@ _fzf_comprun() {
     *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
   esac
 }
+#### End of FZF ####
 
 
 # You may need to manually set your language environment
