@@ -10,3 +10,4 @@ alias generatebin='conda activate py38_dap; python /Users/dxv1220/code/script/ma
 alias icat='kitty icat'
 alias kvd='kubevpn disconnect --all'
 alias kswitchcontext='kubectl config use-context $(kubectl config get-contexts -o name | fzf)'
+alias sync-notes='pushd /Users/dxv1220/code/darren/script/ > /dev/null; poetry run python sync_notes.py; echo "sync done!"; popd > /dev/null'
