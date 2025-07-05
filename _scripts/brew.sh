@@ -76,4 +76,8 @@ casks=(
 install_packages "${packages[@]}"
 install_casks "${casks[@]}"
 
+echo "install JankyBorders"
+brew tap FelixKratz/formulae
+brew install borders
+
 echo "\nbrew.sh completed successfully."
