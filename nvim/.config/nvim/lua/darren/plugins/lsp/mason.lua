@@ -40,6 +40,7 @@ return {
 				"bashls", -- requires rust
 				-- "omnisharp",
 				"marksman",
+				"yamlls",
 				-- "csharp_ls",
 				-- "gdscript",
 				-- "gopls",
