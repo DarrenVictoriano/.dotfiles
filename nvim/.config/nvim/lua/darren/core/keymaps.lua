@@ -6,7 +6,7 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
 -- For python
-vim.g.python3_host_prog = "/Users/dxv1220/.pyenv/versions/3.11.11/bin/python"
+-- vim.g.python3_host_prog = "/Users/dxv1220/.pyenv/versions/3.11.11/bin/python"
 
 local keymap = vim.keymap
 
