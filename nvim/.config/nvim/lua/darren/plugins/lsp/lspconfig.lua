@@ -188,6 +188,37 @@ return {
 					},
 				})
 			end,
+			-- ["omnisharp"] = function()
+			-- 	lspconfig["omnisharp"].setup({
+			-- 		capabilities = capabilities,
+			-- 		-- this dll needs to be downloaded:
+			-- 		-- instructions: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#omnisharp
+			-- 		-- download: https://github.com/OmniSharp/omnisharp-roslyn/releases
+			-- 		cmd = { "dotnet", "/Users/dxv1220/code/omnisharp/OmniSharp.dll" },
+			-- 		settings = {
+			-- 			FormattingOptions = {
+			-- 				EnableEditorConfigSupport = true,
+			-- 				OrganizeImports = nil,
+			-- 			},
+			-- 			MsBuild = {
+			-- 				LoadProjectsOnDemand = nil,
+			-- 			},
+			-- 			RoslynExtensionsOptions = {
+			-- 				EnableAnalyzersSupport = nil,
+			-- 				EnableImportCompletion = nil,
+			-- 				AnalyzeOpenDocumentsOnly = nil,
+			-- 			},
+			-- 			Sdk = {
+			-- 				IncludePrereleases = true,
+			-- 			},
+			-- 		},
+			-- 	})
+			-- end,
+			["robotframework-ls"] = function()
+				lspconfig["robotframework-ls"].setup({
+					capabilities = capabilities,
+				})
+			end,
 			["yamlls"] = function()
 				lspconfig["yamlls"].setup({
 					capabilities = capabilities,
