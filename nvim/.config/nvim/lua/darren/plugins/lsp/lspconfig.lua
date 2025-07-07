@@ -221,8 +221,8 @@ return {
 			-- 		},
 			-- 	})
 			-- end,
-			["robotframework-ls"] = function()
-				lspconfig["robotframework-ls"].setup({
+			["robotframework_ls"] = function()
+				lspconfig["robotframework_ls"].setup({
 					capabilities = capabilities,
 				})
 			end,
