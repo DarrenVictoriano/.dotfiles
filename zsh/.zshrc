@@ -157,6 +157,7 @@ alias f='fuck'
 alias fman='compgen -c | fzf | xargs man'
 alias ftldr='compgen -c | fzf | xargs tldr'
 alias vim='nvim'
+alias grep='rg'
 alias kswitchcontext='kubectl config use-context $(kubectl config get-contexts -o name | fzf)'
 
 #### Functions ####
