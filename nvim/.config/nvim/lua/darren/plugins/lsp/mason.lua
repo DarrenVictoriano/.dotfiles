@@ -54,7 +54,7 @@ return {
 				"isort", -- python formatter
 				"black", -- python formatter
 				"pylint", -- python linter
-				"mypy", -- python linter
+				-- "mypy", -- python linter
 				-- "eslint_d", -- js linter
 				"shellharden", -- bash linter
 				-- "ast-grep", -- csharp linter/formatter

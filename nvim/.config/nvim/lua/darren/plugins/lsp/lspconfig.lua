@@ -149,6 +149,13 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+		-- Inject Poetry virtual env if available
+		local venv = vim.fn.trim(vim.fn.system("poetry env info -p"))
+		if vim.fn.isdirectory(venv) == 1 then
+			vim.env.VIRTUAL_ENV = venv
+			vim.env.PATH = venv .. "/bin:" .. vim.env.PATH
+		end
+
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
 			function(server_name)
