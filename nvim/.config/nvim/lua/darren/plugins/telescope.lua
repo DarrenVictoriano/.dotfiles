@@ -20,6 +20,7 @@ return {
 		-- I don't want to search in the `.git` directory.
 		table.insert(vimgrep_arguments, "--glob")
 		table.insert(vimgrep_arguments, "!**/.git/*")
+		table.insert(vimgrep_arguments, "!**/.mypy/*")
 
 		telescope.setup({
 			defaults = {
