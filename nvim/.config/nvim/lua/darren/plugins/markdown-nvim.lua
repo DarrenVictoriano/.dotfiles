@@ -6,4 +6,12 @@ return {
 	main = "render-markdown",
 	name = "render-markdown",
 	opts = {},
+	config = function()
+		local mk = require("render-markdown")
+		mk.setup({
+			heading = {
+				enabled = false,
+			},
+		})
+	end,
 }
