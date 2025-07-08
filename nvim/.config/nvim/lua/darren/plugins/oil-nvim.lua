@@ -17,20 +17,11 @@ return {
 					max_width = 100,
 					max_height = 30,
 				},
-				keymaps = {
-					["<C-f>"] = "actions.telescope", -- Telescope find files in Oil's directory
-				},
+				keymaps = {},
 			})
 
 			-- Open Oil in current file's directory
-			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory (Oil)" })
-
-			-- Open Telescope from Oil's directory (works even outside of Oil buffers)
-			vim.keymap.set("n", "<leader>fo", function()
-				require("telescope.builtin").find_files({
-					cwd = oil.get_current_dir(),
-				})
-			end, { desc = "Telescope [F]ind files from [O]il dir" })
+			vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory (Oil)" })
 		end,
 	},
 }
