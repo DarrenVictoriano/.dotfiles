@@ -38,6 +38,7 @@ return {
 				"clangd",
 				"robotframework_ls",
 				"bashls", -- requires rust
+				-- "omnisharp",
 				"marksman",
 				"yamlls",
 				-- "csharp_ls",
@@ -53,9 +54,10 @@ return {
 				"isort", -- python formatter
 				"black", -- python formatter
 				"pylint", -- python linter
-				"mypy", -- python linter
-				"eslint_d", -- js linter
+				-- "mypy", -- python linter
+				-- "eslint_d", -- js linter
 				"shellharden", -- bash linter
+				-- "ast-grep", -- csharp linter/formatter
 			},
 		})
 	end,

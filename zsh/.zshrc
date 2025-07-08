@@ -86,9 +86,26 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-history-substring-search
+  zsh-kubectl-prompt
+  poetry
 )
 
 source $ZSH/oh-my-zsh.sh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
+
+## Parse kubectl promt to only display the context
+function kubectl_prompt() {
+    context=$(echo "$ZSH_KUBECTL_CONTEXT" | cut -d'_' -f2)
+    
+    # Check if the first index is not empty
+    if [ -n "$context" ]; then
+		echo "$context"
+    else
+        # Return an error message if the first index is empty
+        echo "Error: Unable to extract the 1st index from ZSH_KUBECTL_CONTEXT"
+    fi
+}
+RPROMPT='%{$fg[blue]%}($(kubectl_prompt))%{$reset_color%}'
 
 # CLI Tools
 # enable thefuck
@@ -125,15 +142,13 @@ export FZF_DEFAULT_OPTS=" \
 export BAT_THEME="Catppuccin Macchiato"
 
 
-# Alias
+#### Alias ####
 # For a full list of active aliases, run `alias`.
 alias refresh='source ~/.zshrc'
 alias ls='eza --icons=always'
 alias cat='bat'
+alias icat='kitty icat'
 alias cd='z'
-alias dotfiles="code ~/.dotfiles"
-alias zshrc="code ~/.dotfiles/zsh"
-alias p10krc="code ~/.dotfiles/p10k/.p10k.zsh"
 alias k="kubectl"
 alias del="trash"
 alias history='history_clean'
@@ -141,20 +156,84 @@ alias diff='git diff --no-index'
 alias f='fuck'
 alias fman='compgen -c | fzf | xargs man'
 alias ftldr='compgen -c | fzf | xargs tldr'
-alias nvim_notes='cd /Users/darren/Library/Mobile Documents/iCloud~md~obsidian/Documents/SecondBrain; nvim'
-alias img='kitty icat'
+alias vim='nvim'
+alias grep='rg'
+alias kswitchcontext='kubectl config use-context $(kubectl config get-contexts -o name | fzf)'
 
-# Functions
-trash() {
-	# move items to trash
-	mv -f "$1" ~/.Trash
-	echo "moved to Trash: '$1'"
+#### Functions ####
+function pandoc_md_to_pdf () {
+    # https://github.com/Wandmalfarbe/pandoc-latex-template?tab=readme-ov-file
+    pandoc "$1" -o "$2" --verbose --template=eisvogel --from markdown --listings -V listings-no-page-break -V listings-disable-line-numbers
 }
 
-history_clean() {
+
+function trash() {
+    # Try to move the item to Trash
+    mv -f "$1" ~/.Trash
+    if [ $? -eq 0 ]; then
+        echo "Moved to Trash: '$1'"
+    else
+        # If moving to Trash fails, delete the item
+        rm -rf "$1"
+        if [ $? -eq 0 ]; then
+            echo "Deleted: '$1'"
+        else
+            echo "Failed to delete: '$1'"
+        fi
+    fi
+}
+
+function history_clean() {
 	history | awk '{first = $1; $1 =""; print $0}' | sed 's/^ //g'
 }
 
+function sga() {
+	# show git aliases
+    # Assuming Oh My Zsh is installed in the default location
+    git_plugin_file="$HOME/.oh-my-zsh/plugins/git/git.plugin.zsh"
+    
+    # Check if the plugin file exists
+    if [[ -f "$git_plugin_file" ]]; then
+        # Use grep to extract lines starting with "alias"
+        grep "^alias" "$git_plugin_file"
+    else
+        echo "Git plugin file not found."
+    fi
+}
+
+function sza() {
+    # Assuming Oh My Zsh is installed in the default location
+    git_plugin_file="$HOME/.zsh_aliases"
+    
+    # Check if the plugin file exists
+    if [[ -f "$git_plugin_file" ]]; then
+        # Use grep to extract lines starting with "alias"
+        grep "^alias" "$git_plugin_file"
+    else
+        echo "Git plugin file not found."
+    fi
+}
+
+function szf() {
+    # Assuming Oh My Zsh is installed in the default location
+    git_plugin_file="$HOME/.zsh_functions"
+    
+    # Check if the plugin file exists
+    if [[ -f "$git_plugin_file" ]]; then
+        # Use grep to extract lines starting with "alias"
+        grep "^function" "$git_plugin_file"
+    else
+        echo "Git plugin file not found."
+    fi
+}
+### End of Functions ####
+
+# Add custom Alias and Functions if exist
+[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
+[ -f ~/.zsh_functions ] && source ~/.zsh_functions
+
+
+#### FZF customs ####
 # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
@@ -181,6 +260,7 @@ _fzf_comprun() {
     *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
   esac
 }
+#### End of FZF ####
 
 
 # You may need to manually set your language environment

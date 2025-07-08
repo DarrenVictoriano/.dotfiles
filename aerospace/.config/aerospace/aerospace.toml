@@ -9,7 +9,11 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = [
+    # JankyBorders has a built-in detection of already running process,
+    # so it won't be run twice on AeroSpace restart
+    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+]
 
 # Start AeroSpace at login
 start-at-login = true 
@@ -234,6 +238,10 @@ run = 'move-node-to-workspace D'
 
 # auto move to workspace A
 [[on-window-detected]]
+ if.app-id = 'com.hnc.Discord'
+ run = 'move-node-to-workspace A'
+
+[[on-window-detected]]
 if.app-id = 'com.microsoft.teams2'
 run = 'move-node-to-workspace A'
 
@@ -243,10 +251,6 @@ run = 'move-node-to-workspace A'
 
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
-run = 'move-node-to-workspace A'
-
-[[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
 run = 'move-node-to-workspace A'
 
 [[on-window-detected]]
@@ -270,6 +274,7 @@ run = 'layout floating'
 if.app-id = 'com.adobe.Reader'
 run = 'layout floating'
 
-[[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = 'layout floating'
+[[on-window-detected]]	
+if.app-id = 'com.mitchellh.ghostty'	
+run = 'layout floating'	
+
