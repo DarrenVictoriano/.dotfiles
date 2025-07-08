@@ -10,14 +10,17 @@ return {
 			local harpoon = require("harpoon")
 			harpoon:setup()
 
-			-- Use Telescope to show harpoon menu
+			-- Use Telescope to show harpoon menu with shortcut labels
 			local function toggle_telescope(harpoon_files)
 				local conf = require("telescope.config").values
 				local file_paths = {}
 
+				-- Map harpoon slots to your shortcut keys
+				local shortcut_labels = { "6", "5", "4", "3" }
+
 				for i, item in ipairs(harpoon_files.items) do
-					-- Format: "1: /path/to/file"
-					table.insert(file_paths, string.format("%d: %s", i, item.value))
+					local shortcut = shortcut_labels[i] or tostring(i)
+					table.insert(file_paths, string.format("[%s] %s", shortcut, item.value))
 				end
 
 				require("telescope.pickers")
@@ -30,7 +33,7 @@ return {
 									value = entry,
 									display = entry,
 									ordinal = entry,
-									path = entry:match("^%d+: (.+)$"), -- extract actual file path
+									path = entry:match("^%[.-%]%s(.+)$"), -- extract file path from "[x] path"
 								}
 							end,
 						}),
@@ -58,19 +61,19 @@ return {
 				toggle_telescope(harpoon:list())
 			end, { desc = "Harpoon Telescope Menu" })
 
-			vim.keymap.set("n", "<leader>hf", function()
+			vim.keymap.set("n", "6", function()
 				harpoon:list():select(1)
 			end, { desc = "Harpoon to File 1" })
 
-			vim.keymap.set("n", "<leader>hd", function()
+			vim.keymap.set("n", "5", function()
 				harpoon:list():select(2)
 			end, { desc = "Harpoon to File 2" })
 
-			vim.keymap.set("n", "<leader>hs", function()
+			vim.keymap.set("n", "4", function()
 				harpoon:list():select(3)
 			end, { desc = "Harpoon to File 3" })
 
-			vim.keymap.set("n", "<leader>ha", function()
+			vim.keymap.set("n", "3", function()
 				harpoon:list():select(4)
 			end, { desc = "Harpoon to File 4" })
 		end,
