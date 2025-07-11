@@ -156,6 +156,22 @@ return {
 			vim.env.PATH = venv .. "/bin:" .. vim.env.PATH
 		end
 
+		-- Auto-detect virtualenv in project
+		local function get_venv_python()
+			if venv and vim.fn.executable(venv .. "/bin/python") == 1 then
+				return venv .. "/bin/python"
+			end
+
+			-- Fallback: look for .venv in current project
+			local cwd = vim.loop.cwd()
+			if vim.fn.isdirectory(cwd .. "/.venv") == 1 then
+				return cwd .. "/.venv/bin/python"
+			end
+
+			-- Fallback: use system Python
+			return "python3"
+		end
+
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
 			function(server_name)
@@ -224,6 +240,26 @@ return {
 			["robotframework_ls"] = function()
 				lspconfig["robotframework_ls"].setup({
 					capabilities = capabilities,
+					settings = {
+						robot = {
+							trace = {
+								server = "verbose",
+							},
+							["language-server"] = {
+								python = get_venv_python(),
+							},
+							python = {
+								executable = get_venv_python(),
+							},
+							pythonpath = {
+								"/Users/dxv1220/code/DataPlatformValidationV2",
+							},
+							lint = {
+								enabled = true,
+								undefinedKeywords = true,
+							},
+						},
+					},
 				})
 			end,
 			["yamlls"] = function()
