@@ -1,0 +1,47 @@
+let mapleader=" "
+""" Plugins -------------------------
+set which-key
+set commentary
+set timeoutlen=5000
+set visualbell
+set nerdtree
+set relativenumber
+
+""" Remaps --------------------------
+""" Normal Mode
+inoremap jk <Esc>
+
+""" Buffer Navigation (Tab)
+nmap <s-l> <action>(NextTab)
+nmap <s-h> <action>(PreviousTab)
+
+""" Leader Commands -------------------
+""" comment line
+map <leader>c <action>(CommentByLineComment)
+
+""" Pane navigation
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
+nnoremap <leader>k <C-w>k
+nnoremap <leader>j <C-w>j
+
+""" Split Window
+map <leader>wv <action>(SplitVertically)
+map <leader>ws <action>(SplitHorizontally)
+map <leader>wu <action>(Unsplit)
+map <leader>wm <action>(MoveEditorToOppositeTabGroup)
+
+""" Open CommandLine
+""" map <leader>t <action>(ActivateTerminalToolWindow)
+
+" Open NERDTree (use q to exit)
+map <leader>e :NERDTreeToggle<CR>
+
+" Use system clipboard by default
+set clipboard=unnamedplus
+
+""" Find Mappings
+map <leader>ff <action>(GotoFile)
+map <leader>fs <action>(SearchEverywhere)
+map <leader>fr <action>(ReplaceInPath)
+map <leader>fa <action>(GotoAction)
