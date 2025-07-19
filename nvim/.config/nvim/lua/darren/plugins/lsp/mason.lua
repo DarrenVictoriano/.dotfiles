@@ -51,13 +51,13 @@ return {
 			ensure_installed = {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
+				"ruff", -- python linter/formatter (fast, coded in Rust)
+				"shellharden", -- bash linter
 				-- "isort", -- python formatter
 				-- "black", -- python formatter
 				-- "pylint", -- python linter
-				"ruff", -- python linter/formatter (fast, coded in Rust)
 				-- "mypy", -- python linter
 				-- "eslint_d", -- js linter
-				"shellharden", -- bash linter
 				-- "ast-grep", -- csharp linter/formatter
 			},
 		})
