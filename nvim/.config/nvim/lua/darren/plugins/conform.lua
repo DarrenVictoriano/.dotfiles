@@ -14,9 +14,10 @@ return {
 				html = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
-				markdown = { "prettier" },
+				markdown = {},
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				-- python = { "isort", "black" },
+				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 				-- TODO: add formatters
 				-- cpp
 				-- robot
