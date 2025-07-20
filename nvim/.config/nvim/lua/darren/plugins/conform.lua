@@ -22,6 +22,16 @@ return {
 				-- cpp
 				-- robot
 			},
+			formatters = {
+				prettier = {
+					prepend_args = {
+						"--prose-wrap",
+						"always",
+						"--print-width",
+						"80",
+					},
+				},
+			},
 			format_on_save = {
 				lsp_fallback = true,
 				async = false,
