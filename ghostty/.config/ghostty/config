@@ -1,7 +1,7 @@
 shell-integration = zsh
 font-family = "MesloLGS NF"
 theme = catppuccin-macchiato
-background-opacity = 0.90
+background-opacity = 0.88
 
 cursor-style = block
 cursor-style-blink = true
