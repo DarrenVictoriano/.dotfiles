@@ -1,6 +1,7 @@
 shell-integration = zsh
 font-family = "MesloLGS NF"
 theme = catppuccin-macchiato
+background-opacity = 0.90
 
 cursor-style = block
 cursor-style-blink = true
@@ -15,4 +16,3 @@ macos-titlebar-style = hidden
 macos-titlebar-proxy-icon = hidden
 
 keybind = cmd+backspace=esc:w
-keybind = cmd+r=reload_config

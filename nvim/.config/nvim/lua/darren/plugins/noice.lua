@@ -13,10 +13,17 @@ return {
 		"rcarriga/nvim-notify",
 	},
 	config = function()
-		local noice = require("noice")
+		local bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Normal")), "bg", "gui")
 
+		local notify = require("notify")
+		notify.setup({
+			background_colour = bg ~= "" and bg or "#1e1e2e",
+		})
+
+		local noice = require("noice")
 		noice.setup({
 			lsp = {
+				background_colour = bg ~= "" and bg or "#1e1e2e",
 				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 				override = {
 					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
