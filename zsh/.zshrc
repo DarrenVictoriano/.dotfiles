@@ -151,7 +151,6 @@ alias icat='kitty icat'
 alias cd='z'
 alias k="kubectl"
 alias del="trash"
-alias history='history_clean'
 alias diff='git diff --no-index'
 alias f='fuck'
 alias fman='compgen -c | fzf | xargs man'
@@ -159,11 +158,24 @@ alias ftldr='compgen -c | fzf | xargs tldr'
 alias vim='nvim'
 alias grep='rg'
 alias kswitchcontext='kubectl config use-context $(kubectl config get-contexts -o name | fzf)'
+alias tmux-keys='tmux list-keys | fzf'
+
 
 #### Functions ####
-function pandoc_md_to_pdf () {
+function pandoc_md_to_pdf() {
     # https://github.com/Wandmalfarbe/pandoc-latex-template?tab=readme-ov-file
     pandoc "$1" -o "$2" --verbose --template=eisvogel --from markdown --listings -V listings-no-page-break -V listings-disable-line-numbers
+}
+
+function history-fzf() {
+  local selected
+  selected=$(history | awk '{ $1=""; print substr($0,2) }' | fzf --height 40% --reverse --border --ansi) || return
+  if [[ -n $selected ]]; then
+    # Use `readline` to insert the text into the prompt in bash
+    # For zsh, you might need a different approach
+    printf '%s' "$selected" | pbcopy   # copy to clipboard
+    echo "Copied to clipboard: $selected"
+  fi
 }
 
 
@@ -183,11 +195,7 @@ function trash() {
     fi
 }
 
-function history_clean() {
-	history | awk '{first = $1; $1 =""; print $0}' | sed 's/^ //g'
-}
-
-function sga() {
+function git-keys() {
 	# show git aliases
     # Assuming Oh My Zsh is installed in the default location
     git_plugin_file="$HOME/.oh-my-zsh/plugins/git/git.plugin.zsh"
@@ -195,26 +203,26 @@ function sga() {
     # Check if the plugin file exists
     if [[ -f "$git_plugin_file" ]]; then
         # Use grep to extract lines starting with "alias"
-        grep "^alias" "$git_plugin_file"
+        grep "^alias" "$git_plugin_file" | fzf
     else
         echo "Git plugin file not found."
     fi
 }
 
-function sza() {
+function zsh-alias() {
     # Assuming Oh My Zsh is installed in the default location
     git_plugin_file="$HOME/.zsh_aliases"
     
     # Check if the plugin file exists
     if [[ -f "$git_plugin_file" ]]; then
         # Use grep to extract lines starting with "alias"
-        grep "^alias" "$git_plugin_file"
+        grep "^alias" "$git_plugin_file" | fzf
     else
         echo "Git plugin file not found."
     fi
 }
 
-function szf() {
+function zsh-funcs() {
     # Assuming Oh My Zsh is installed in the default location
     git_plugin_file="$HOME/.zsh_functions"
     
