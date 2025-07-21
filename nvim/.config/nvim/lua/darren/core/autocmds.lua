@@ -8,9 +8,21 @@ api.nvim_create_autocmd("FileType", {
 		vim.opt_local.linebreak = true
 		vim.opt_local.breakindent = true
 		vim.opt_local.showbreak = "  ↳ " -- visually indicate wrapped lines
+		vim.opt_local.textwidth = 80 -- softwrap max length
+		vim.opt_local.spell = true
+		vim.opt_local.spelllang = "en_us"
+
+		-- ✨ Auto-wrap new text at 80 cols
+		-- vim.opt_local.formatoptions:append("t")
+
 		-- Make j/k move by visual lines when wrap is on
-		vim.keymap.set("n", "j", "gj", { buffer = true, silent = true })
-		vim.keymap.set("n", "k", "gk", { buffer = true, silent = true })
+		local map = vim.keymap.set
+		local opts = { buffer = true, silent = true }
+		map({ "n", "x" }, "j", "gj", opts)
+		map({ "n", "x" }, "k", "gk", opts)
+
+		-- don't really use this a lot, dont mind typing gqap
+		-- map("n", "Q", "gqap", { buffer = true, desc = "Format paragraph" })
 	end,
 })
 

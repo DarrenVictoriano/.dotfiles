@@ -209,6 +209,12 @@ return {
 							},
 						},
 					},
+					-- Disable built-in formatting so it doesn't conflict with ruff
+					on_attach = function(client)
+						-- Disable formatting capabilities
+						client.server_capabilities.documentFormattingProvider = false
+						client.server_capabilities.documentRangeFormattingProvider = false
+					end,
 				})
 			end,
 			-- ["omnisharp"] = function()

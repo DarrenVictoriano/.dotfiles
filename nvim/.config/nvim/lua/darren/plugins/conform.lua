@@ -16,10 +16,21 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+				-- python = { "isort", "black" },
 				-- TODO: add formatters
 				-- cpp
 				-- robot
+			},
+			formatters = {
+				prettier = {
+					prepend_args = {
+						"--prose-wrap",
+						"always",
+						"--print-width",
+						"80",
+					},
+				},
 			},
 			format_on_save = {
 				lsp_fallback = true,
