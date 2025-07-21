@@ -145,8 +145,13 @@ export BAT_THEME="Catppuccin Macchiato"
 #### Alias ####
 # For a full list of active aliases, run `alias`.
 alias refresh='source ~/.zshrc'
-alias ls='eza --icons=always'
+alias ls='eza -lh --group-directories-first --icons=auto'
+alias la='ls -a'
 alias cat='bat'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias lta='lt -a'
+alias ff="fzf --preview '~/.zsh_fzf_preview.sh {}'"
+alias fd='fd -H --exclude .git'
 alias icat='kitty icat'
 alias cd='z'
 alias k="kubectl"
@@ -162,7 +167,7 @@ alias tmux-keys='tmux list-keys | fzf'
 
 
 #### Functions ####
-function pandoc_md_to_pdf() {
+function pandoc-md-to-pdf() {
     # https://github.com/Wandmalfarbe/pandoc-latex-template?tab=readme-ov-file
     pandoc "$1" -o "$2" --verbose --template=eisvogel --from markdown --listings -V listings-no-page-break -V listings-disable-line-numbers
 }
