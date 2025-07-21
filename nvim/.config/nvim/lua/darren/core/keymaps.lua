@@ -5,13 +5,9 @@ vim.g.maplocalleader = " "
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
--- For python
--- vim.g.python3_host_prog = "/Users/dxv1220/.pyenv/versions/3.11.11/bin/python"
-
 local keymap = vim.keymap
 
----------------------
--- General Keymaps -------------------
+--------------------- General Keymaps ---------------------
 
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
@@ -50,3 +46,15 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 keymap.set("n", "L", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "H", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+
+-- scroll half screen and center
+keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move down half screen" })
+keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move up half screen" })
+
+-- scroll one full screen and center
+keymap.set("n", "<C-f>", "<C-f>zz", { desc = "Move down one full screen" })
+keymap.set("n", "<C-b>", "<C-b>zz", { desc = "Move down one full screen" })
+
+-- Search next/prev and center + open folds
+keymap.set("n", "n", "nzzzv", { desc = "Search next and center" })
+keymap.set("n", "N", "Nzzzv", { desc = "Search previous and center" })
