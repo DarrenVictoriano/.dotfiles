@@ -24,8 +24,6 @@ return {
 		keymap("n", "<leader>gq", ":DiffviewClose<CR>", "Close Diffview")
 
 		-- Optional: keymaps for navigating and choosing conflict hunks
-		keymap("n", "<leader>go", "]c", "Next conflict")
-		keymap("n", "<leader>gO", "[c", "Previous conflict")
 		keymap("n", "<leader>gl", ":diffget //2<CR>", "Choose local version")
 		-- keymap("n", "<leader>gb", ":diffget //3<CR>", "Choose base version")
 		keymap("n", "<leader>gh", ":diffget //4<CR>", "Choose remote version")
