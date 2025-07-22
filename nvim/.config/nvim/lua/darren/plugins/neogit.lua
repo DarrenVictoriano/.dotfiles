@@ -22,8 +22,8 @@ return {
 		-- Optional: keymaps for navigating and choosing conflict hunks
 		vim.keymap.set("n", "<leader>go", "]c", { desc = "Next conflict" })
 		vim.keymap.set("n", "<leader>gO", "[c", { desc = "Previous conflict" })
-		vim.keymap.set("n", "<leader>gb", ":diffget //2<CR>", { desc = "Choose base version" })
-		vim.keymap.set("n", "<leader>gl", ":diffget //3<CR>", { desc = "Choose local version" })
-		vim.keymap.set("n", "<leader>gr", ":diffget //4<CR>", { desc = "Choose remote version" })
+		vim.keymap.set("n", "<leader>gl", ":diffget //2<CR>", { desc = "Choose local version" })
+		vim.keymap.set("n", "<leader>gb", ":diffget //3<CR>", { desc = "Choose base version" })
+		vim.keymap.set("n", "<leader>gh", ":diffget //4<CR>", { desc = "Choose remote version" })
 	end,
 }
