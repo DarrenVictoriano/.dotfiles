@@ -12,7 +12,7 @@ return {
 		workspaces = {
 			{
 				name = "SecondBrain",
-				path = "~/Library/Mobile Documents/com~apple~CloudDocs/SecondBrain",
+                path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/SecondBrain",
 			},
 		},
 		ui = {
