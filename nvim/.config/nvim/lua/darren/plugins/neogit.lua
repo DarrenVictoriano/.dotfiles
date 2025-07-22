@@ -19,6 +19,9 @@ return {
 		keymap("n", "<leader>gp", ":Neogit pull<CR>", "Neogit Pull")
 		keymap("n", "<leader>gP", ":Neogit push<CR>", "Neogit Push")
 
+        -- Git Branch Telescope
+        keymap("n", "<leader>gb", ":Telescope git_branches<CR>", "Git Branch")
+
 		-- Merge conflict resolution keymaps
 		keymap("n", "<leader>gd", ":DiffviewOpen<CR>", "Open Diffview in new tab")
 		keymap("n", "<leader>gq", ":DiffviewClose<CR>", "Close Diffview")
