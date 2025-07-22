@@ -7,39 +7,27 @@ return {
 	},
 	config = function()
 		local neogit = require("neogit")
-		local keymap = vim.keymap
 		neogit.setup({})
 
+		local function keymap(mode, l, r, desc)
+			vim.keymap.set(mode, l, r, { desc = desc, noremap = true, silent = true })
+		end
+
 		-- General Neogit Keymaps
-		keymap.set("n", "<leader>gs", neogit.open, { desc = "Neogit Status", silent = true, noremap = true })
-		keymap.set("n", "<leader>gc", ":Neogit commit<CR>", { desc = "Neogit Commit", silent = true, noremap = true })
-		keymap.set("n", "<leader>gp", ":Neogit pull<CR>", { desc = "Neogit Pull", silent = true, noremap = true })
-		keymap.set("n", "<leader>gP", ":Neogit push<CR>", { desc = "Neogit Push", silent = true, noremap = true })
+		keymap("n", "<leader>gs", neogit.open, "Neogit Status")
+		keymap("n", "<leader>gc", ":Neogit commit<CR>", "Neogit Commit")
+		keymap("n", "<leader>gp", ":Neogit pull<CR>", "Neogit Pull")
+		keymap("n", "<leader>gP", ":Neogit push<CR>", "Neogit Push")
 
 		-- Merge conflict resolution keymaps
-		keymap.set(
-			"n",
-			"<leader>gd",
-			":DiffviewOpen<CR>",
-			{ desc = "Open Diffview in new tab", silent = true, noremap = true }
-		)
-		keymap.set("n", "<leader>gq", ":DiffviewClose<CR>", { desc = "Close Diffview", silent = true, noremap = true })
+		keymap("n", "<leader>gd", ":DiffviewOpen<CR>", "Open Diffview in new tab")
+		keymap("n", "<leader>gq", ":DiffviewClose<CR>", "Close Diffview")
 
 		-- Optional: keymaps for navigating and choosing conflict hunks
-		keymap.set("n", "<leader>go", "]c", { desc = "Next conflict", silent = true, noremap = true })
-		keymap.set("n", "<leader>gO", "[c", { desc = "Previous conflict", silent = true, noremap = true })
-		keymap.set(
-			"n",
-			"<leader>gl",
-			":diffget //2<CR>",
-			{ desc = "Choose local version", silent = true, noremap = true }
-		)
-		-- keymap.set("n", "<leader>gb", ":diffget //3<CR>", { desc = "Choose base version", silent = true, noremap = true })
-		keymap.set(
-			"n",
-			"<leader>gh",
-			":diffget //4<CR>",
-			{ desc = "Choose remote version", silent = true, noremap = true }
-		)
+		keymap("n", "<leader>go", "]c", "Next conflict")
+		keymap("n", "<leader>gO", "[c", "Previous conflict")
+		keymap("n", "<leader>gl", ":diffget //2<CR>", "Choose local version")
+		-- keymap("n", "<leader>gb", ":diffget //3<CR>", "Choose base version")
+		keymap("n", "<leader>gh", ":diffget //4<CR>", "Choose remote version")
 	end,
 }

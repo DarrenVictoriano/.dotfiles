@@ -6,12 +6,12 @@ return {
 			local gs = package.loaded.gitsigns
 
 			local function map(mode, l, r, desc)
-				vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
+				vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc, noremap = true })
 			end
 
 			-- Navigation
-			map("n", "<leader>gn", gs.next_hunk, "Next Hunk")
-			map("n", "<leader>gp", gs.prev_hunk, "Prev Hunk")
+			map("n", "<leader>g]", gs.next_hunk, "Next Hunk")
+			map("n", "<leader>g[", gs.prev_hunk, "Prev Hunk")
 
 			-- Actions
 			-- map("n", "<leader>gs", gs.stage_hunk, "Stage hunk")
