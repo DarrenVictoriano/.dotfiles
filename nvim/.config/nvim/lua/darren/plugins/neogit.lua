@@ -4,28 +4,42 @@ return {
 		"nvim-lua/plenary.nvim", -- required
 		"sindrets/diffview.nvim", -- optional - Diff integration
 		"nvim-telescope/telescope.nvim", -- optional
-		"tpope/vim-fugitive",
 	},
 	config = function()
 		local neogit = require("neogit")
+		local keymap = vim.keymap
 		neogit.setup({})
 
 		-- General Neogit Keymaps
-		vim.keymap.set("n", "<leader>gs", function()
-			neogit.open()
-		end, { desc = "Neogit Status" })
+		keymap.set("n", "<leader>gs", neogit.open, { desc = "Neogit Status", silent = true, noremap = true })
+		keymap.set("n", "<leader>gc", ":Neogit commit<CR>", { desc = "Neogit Commit", silent = true, noremap = true })
+		keymap.set("n", "<leader>gp", ":Neogit pull<CR>", { desc = "Neogit Pull", silent = true, noremap = true })
+		keymap.set("n", "<leader>gP", ":Neogit push<CR>", { desc = "Neogit Push", silent = true, noremap = true })
 
 		-- Merge conflict resolution keymaps
-		vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "Open Diffview in new tab" })
-		vim.keymap.set("n", "<leader>gq", ":DiffviewClose<CR>", { desc = "Close Diffview" })
-		vim.keymap.set("n", "<leader>gm", ":Gvdiffsplit!<CR>", { desc = "Open Git diff for merge conflict" })
-		vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>", { desc = "Open Git diff for merge conflict" })
+		keymap.set(
+			"n",
+			"<leader>gd",
+			":DiffviewOpen<CR>",
+			{ desc = "Open Diffview in new tab", silent = true, noremap = true }
+		)
+		keymap.set("n", "<leader>gq", ":DiffviewClose<CR>", { desc = "Close Diffview", silent = true, noremap = true })
 
 		-- Optional: keymaps for navigating and choosing conflict hunks
-		vim.keymap.set("n", "<leader>go", "]c", { desc = "Next conflict" })
-		vim.keymap.set("n", "<leader>gO", "[c", { desc = "Previous conflict" })
-		vim.keymap.set("n", "<leader>gl", ":diffget //2<CR>", { desc = "Choose local version" })
-		vim.keymap.set("n", "<leader>gb", ":diffget //3<CR>", { desc = "Choose base version" })
-		vim.keymap.set("n", "<leader>gh", ":diffget //4<CR>", { desc = "Choose remote version" })
+		keymap.set("n", "<leader>go", "]c", { desc = "Next conflict", silent = true, noremap = true })
+		keymap.set("n", "<leader>gO", "[c", { desc = "Previous conflict", silent = true, noremap = true })
+		keymap.set(
+			"n",
+			"<leader>gl",
+			":diffget //2<CR>",
+			{ desc = "Choose local version", silent = true, noremap = true }
+		)
+		-- keymap.set("n", "<leader>gb", ":diffget //3<CR>", { desc = "Choose base version", silent = true, noremap = true })
+		keymap.set(
+			"n",
+			"<leader>gh",
+			":diffget //4<CR>",
+			{ desc = "Choose remote version", silent = true, noremap = true }
+		)
 	end,
 }
