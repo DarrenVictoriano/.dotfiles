@@ -36,3 +36,20 @@ api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+-- Automatically save the buffer when:
+-- TextChages in Normal mode 
+-- Leave out of the Insert Mode
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+	callback = function()
+		local ft_exclude = { "NvimTree", "alpha", "oil" }
+		if
+			vim.bo.modified
+			and vim.bo.modifiable
+			and vim.bo.buftype == ""
+			and not vim.tbl_contains(ft_exclude, vim.bo.filetype)
+		then
+			vim.cmd("silent! write")
+		end
+	end,
+})
