@@ -4,6 +4,7 @@ return {
 		"nvim-lua/plenary.nvim", -- required
 		"sindrets/diffview.nvim", -- optional - Diff integration
 		"nvim-telescope/telescope.nvim", -- optional
+        "tpope/vim-fugitive",
 	},
 	config = function()
 		local neogit = require("neogit")
