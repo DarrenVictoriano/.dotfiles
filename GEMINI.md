@@ -13,7 +13,7 @@
 ## Neovim Setup
 
 ### Location:
-`/Users/darren/.dotfiles/nvim/.config/nvim/`
+`~/.dotfiles/nvim/.config/nvim/`
 
 ### General Philosophy:
 
@@ -90,7 +90,7 @@ nvim/
 ## Tmux Setup
 
 ### Location:
-`/Users/darren/.dotfiles/tmux/.tmux.conf`
+`~/.dotfiles/tmux/.tmux.conf`
 
 ### Features:
 
@@ -119,7 +119,7 @@ nvim/
 
 ### Bootstrap Scripts:
 
-Located in `/Users/darren/.dotfiles/_scripts/`
+Located in `~/.dotfiles/_scripts/`
 
 - `install.sh`: entry point for setting up system
 - `brew.sh`: installs Homebrew packages
