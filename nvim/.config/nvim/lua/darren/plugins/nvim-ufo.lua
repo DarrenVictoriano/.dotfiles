@@ -54,3 +54,4 @@ return {
 		end, { desc = "Close folds with level" })
 	end,
 }
+
