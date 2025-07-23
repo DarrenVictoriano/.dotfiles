@@ -62,19 +62,19 @@ return {
 				harpoon.ui:toggle_quick_menu(harpoon:list())
 			end, { desc = "Harpoon Telescope Menu" })
 
-			vim.keymap.set("n", "6", function()
+			vim.keymap.set("n", "<leader>6", function()
 				harpoon:list():select(1)
 			end, { desc = "Harpoon to File 6" })
 
-			vim.keymap.set("n", "5", function()
+			vim.keymap.set("n", "<leader>5", function()
 				harpoon:list():select(2)
 			end, { desc = "Harpoon to File 5" })
 
-			vim.keymap.set("n", "4", function()
+			vim.keymap.set("n", "<leader>4", function()
 				harpoon:list():select(3)
 			end, { desc = "Harpoon to File 4" })
 
-			vim.keymap.set("n", "3", function()
+			vim.keymap.set("n", "<leader>3", function()
 				harpoon:list():select(4)
 			end, { desc = "Harpoon to File 3" })
 		end,

@@ -25,6 +25,8 @@ return {
 		-- Merge conflict resolution keymaps
 		keymap("n", "<leader>gd", ":DiffviewOpen<CR>", "Open Diffview in new tab")
 		keymap("n", "<leader>gq", ":DiffviewClose<CR>", "Close Diffview")
+		keymap("n", "<leader>gj", "]x", "Next conflict")
+		keymap("n", "<leader>gk", "[x", "Previous conflict")
 
 		-- Optional: keymaps for navigating and choosing conflict hunks
 		keymap("n", "<leader>gl", ":diffget //2<CR>", "Choose local version")
