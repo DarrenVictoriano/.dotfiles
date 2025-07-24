@@ -244,28 +244,55 @@ return {
 			-- 	})
 			-- end,
 			["robotframework_ls"] = function()
+				local venv_python = get_venv_python()
+				local root_markers = { "pyproject.toml", ".git", "robot.yaml", "requirements.txt" }
+				local root = require("lspconfig.util").root_pattern(unpack(root_markers))(vim.fn.bufname(0))
+
 				lspconfig["robotframework_ls"].setup({
 					capabilities = capabilities,
-					settings = {
-						robot = {
-							["language-server"] = {
-								python = get_venv_python(),
+					root_dir = root,
+					on_init = function(client)
+						-- Get the absolute path of the workspace folder
+						local workspace_folder = client.workspace_folders[1].name
+
+						-- Build the pythonpath with absolute paths
+						local pythonpath = { workspace_folder }
+
+						-- Dynamically find site-packages from the virtualenv
+						if venv_python and vim.fn.executable(venv_python) == 1 then
+							local cmd = venv_python
+								.. [[ -c "import sys, json; print(json.dumps([p for p in sys.path if p and ('site-packages' in p or 'dist-packages' in p)]))"]]
+							local site_packages_json = vim.fn.system(cmd)
+
+							if vim.v.shell_error == 0 and site_packages_json and site_packages_json:match("%S") then
+								local site_packages = vim.fn.json_decode(site_packages_json)
+								for _, p in ipairs(site_packages) do
+									table.insert(pythonpath, p)
+								end
+							end
+						end
+
+						-- Update the server configuration with the correct absolute paths
+						local new_settings = {
+							robot = {
+								["language-server"] = {
+									python = venv_python,
+								},
+								python = {
+									executable = venv_python,
+								},
+								pythonpath = pythonpath,
+								workspace = workspace_folder, -- Use the absolute path
+								lint = {
+									enabled = true,
+									undefinedKeywords = true,
+								},
 							},
-							python = {
-								executable = get_venv_python(),
-							},
-							pythonpath = {
-								"~/code/DataPlatformValidationV2",
-								"~/code/DataPlatformValidationV2/tests",
-								"~/code/DataPlatformValidationV2/tests/dap",
-                                "~/Library/Caches/pypoetry/virtualenvs/dataplatformvalidationv2-SaK_jBta-py3.11/lib/python3.11/site-packages/",
-							},
-							lint = {
-								enabled = true,
-								undefinedKeywords = true,
-							},
-						},
-					},
+						}
+
+						client.config.settings = vim.tbl_deep_extend("force", client.config.settings, new_settings)
+						client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+					end,
 				})
 			end,
 			["yamlls"] = function()
