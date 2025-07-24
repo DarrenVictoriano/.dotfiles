@@ -248,9 +248,6 @@ return {
 					capabilities = capabilities,
 					settings = {
 						robot = {
-							trace = {
-								server = "verbose",
-							},
 							["language-server"] = {
 								python = get_venv_python(),
 							},
@@ -258,7 +255,10 @@ return {
 								executable = get_venv_python(),
 							},
 							pythonpath = {
-								"/Users/dxv1220/code/DataPlatformValidationV2",
+								"~/code/DataPlatformValidationV2",
+								"~/code/DataPlatformValidationV2/tests",
+								"~/code/DataPlatformValidationV2/tests/dap",
+                                "~/Library/Caches/pypoetry/virtualenvs/dataplatformvalidationv2-SaK_jBta-py3.11/lib/python3.11/site-packages/",
 							},
 							lint = {
 								enabled = true,
