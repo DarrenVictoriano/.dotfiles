@@ -42,10 +42,14 @@ keymap.set("n", "<leader>wx", "<cmd>bwipeout<CR>", { desc = "Close current buffe
 
 -- tab management
 keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
+keymap.set("n", "<leader>tx", "<cmd>bwipeout<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
-keymap.set("n", "L", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
-keymap.set("n", "H", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+keymap.set("n", "<leader>tl", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
+keymap.set("n", "<leader>th", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+
+-- buffer management
+keymap.set("n", "L", "<cmd>bnext<CR>", { desc = "Go to next buffer", noremap = true })
+keymap.set("n", "H", "<cmd>bprevious<CR>", { desc = "Go to previous buffer", noremap = true })
 
 -- scroll half screen and center
 keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move down half screen" })
