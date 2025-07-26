@@ -7,6 +7,8 @@ return {
 	end,
 	opts = {
 		-- your configuration comes here
+        -- preset = "modern",
+        preset = "helix",
 		icons = {
 			-- set icon mappings to true if you have a Nerd Font
 			mappings = vim.g.have_nerd_font,
@@ -70,10 +72,10 @@ return {
 		},
 		win = {
 			-- width = 1,
-			height = { min = 4, max = 35 },
+			-- height = { min = 4, max = 35 },
 			-- col = 0,
-			title = true,
-			title_pos = "center",
+			-- title = true,
+			-- title_pos = "center",
 		},
 	},
 }

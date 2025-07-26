@@ -43,5 +43,3 @@ set clipboard=unnamedplus
 """ Find Mappings
 map <leader>ff <action>(GotoFile)
 map <leader>fs <action>(SearchEverywhere)
-map <leader>fr <action>(ReplaceInPath)
-map <leader>fa <action>(GotoAction)
