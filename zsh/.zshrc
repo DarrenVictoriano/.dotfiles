@@ -148,7 +148,7 @@ alias refresh='source ~/.zshrc'
 alias ls='eza -lh --group-directories-first --icons=auto'
 alias la='ls -a'
 alias cat='bat'
-alias lt='eza --tree --level=2 --long --icons --git'
+alias lt='eza --tree --level=3 --git --group-directories-first'
 alias lta='lt -a'
 alias ff="fzf --preview '~/.zsh_fzf_preview.sh {}'"
 alias fd='fd -H --exclude .git'
