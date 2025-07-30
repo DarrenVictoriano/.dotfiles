@@ -7,6 +7,7 @@ return {
 	end,
 	opts = {
 		-- your configuration comes here
+        preset = "helix",
 		icons = {
 			-- set icon mappings to true if you have a Nerd Font
 			mappings = vim.g.have_nerd_font,
@@ -64,16 +65,16 @@ return {
 			scroll_down = "<c-j>", -- binding to scroll down inside the popup
 			scroll_up = "<c-k>", -- binding to scroll up inside the popup
 		},
-		layout = {
-			width = { min = 20 }, -- min and max width of the columns
-			spacing = 3, -- spacing between columns
-		},
-		win = {
-			-- width = 1,
-			height = { min = 4, max = 35 },
-			-- col = 0,
-			title = true,
-			title_pos = "center",
-		},
+		-- layout = {
+		-- 	width = { min = 20 }, -- min and max width of the columns
+		-- 	spacing = 3, -- spacing between columns
+		-- },
+		-- win = {
+		-- 	width = 1,
+		-- 	height = { min = 4, max = 35 },
+		-- 	col = 0,
+		-- 	title = true,
+		-- 	title_pos = "center",
+		-- },
 	},
 }
