@@ -41,7 +41,7 @@ keymap.set("n", "<leader>wd", "<cmd>close<CR>", { desc = "Close current split" }
 keymap.set("n", "<leader>wx", "<cmd>bwipeout<CR>", { desc = "Close current buffer" }) -- close current split window
 
 -- save and quit buffer
-keymap.set("n", "<leader>ws", ":w<CR>", { desc = "Save Buffer" })
+keymap.set("n", "<leader>ww", ":w<CR>", { desc = "Save Buffer" })
 keymap.set("n", "<leader>wq", ":wq<CR>", { desc = "Save and Quit Buffer" })
 keymap.set("n", "<leader>qq", ":wqa<CR>", { desc = "Save and Quit All" })
 
