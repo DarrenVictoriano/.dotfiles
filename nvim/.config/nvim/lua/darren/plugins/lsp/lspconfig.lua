@@ -283,6 +283,14 @@ return {
 					},
 				})
 			end,
+			["sourcekit"] = function()
+				lspconfig["sourcekit"].setup({
+					cmd = { "/usr/bin/sourcekit-lsp" },
+					filetypes = { "swift", "objective-c" },
+					root_dir = lspconfig.util.root_pattern("Package.swift", ".xcodeproj", ".git"),
+					capabilities = capabilities,
+				})
+			end,
 		})
 	end,
 }

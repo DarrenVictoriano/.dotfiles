@@ -17,6 +17,7 @@ return {
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+				swift = { "swift" },
 				-- python = { "isort", "black" },
 				-- TODO: add formatters
 				-- cpp

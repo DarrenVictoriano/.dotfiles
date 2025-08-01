@@ -41,6 +41,7 @@ return {
 				"python",
 				"robot",
 				"go",
+                "swift",
 			},
 			incremental_selection = {
 				enable = true,

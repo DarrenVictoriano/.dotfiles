@@ -53,6 +53,7 @@ return {
 				"stylua", -- lua formatter
 				"ruff", -- python linter/formatter (fast, coded in Rust)
 				"shellharden", -- bash linter
+                "swiftlint", -- swift linter
 				-- "isort", -- python formatter
 				-- "black", -- python formatter
 				-- "pylint", -- python linter
