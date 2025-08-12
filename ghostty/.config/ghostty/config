@@ -1,6 +1,6 @@
 shell-integration = zsh
 font-family = "MesloLGS NF"
-theme = /Users/darren/.config/ghostty/tokyonight_storm
+theme = /Users/dxv1220/.config/ghostty/tokyonight_storm
 background-opacity = 1
 
 cursor-style = block
