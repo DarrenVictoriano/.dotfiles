@@ -196,6 +196,14 @@ return {
 					},
 				})
 			end,
+			["rust_analyzer"] = function()
+				lspconfig["rust_analyzer"].setup({
+					capabilities = capabilities,
+					diagnostics = {
+						enable = true,
+					},
+				})
+			end,
 			["pyright"] = function()
 				-- configure lua server (with special settings)
 				lspconfig["pyright"].setup({

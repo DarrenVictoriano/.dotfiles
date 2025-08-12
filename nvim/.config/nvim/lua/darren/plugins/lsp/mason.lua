@@ -36,6 +36,7 @@ return {
 				"lua_ls",
 				"pyright",
 				"clangd",
+                "rust_analyzer",
 				"robotframework_ls",
 				"bashls", -- requires rust
 				-- "omnisharp",
