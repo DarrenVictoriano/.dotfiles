@@ -41,6 +41,7 @@ return {
 				"python",
 				"robot",
 				"go",
+                "regex",
 			},
 			incremental_selection = {
 				enable = true,

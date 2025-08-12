@@ -42,6 +42,7 @@ packages=(
   jesseduffield/lazygit/lazygit  # Lazygit for nvim
   shellcheck  # for bash lsp
   shfmt     # for bash lsp
+  luarocks  # for nvim mason
   tmux
   nvim
   wget

@@ -1,4 +1,9 @@
 vim.cmd("let g:netrw_liststyle = 3")
+vim.cmd("let g:loaded_ruby_provider = 0")
+vim.cmd("let g:loaded_perl_provider = 0")
+vim.cmd("let g:loaded_node_provider = 0")
+
+vim.g.python3_host_prog = "~/.pyenv/versions/3.11.11/bin/python"
 
 local opt = vim.opt
 

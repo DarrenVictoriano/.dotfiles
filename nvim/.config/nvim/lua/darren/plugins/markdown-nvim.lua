@@ -12,6 +12,9 @@ return {
 			heading = {
 				enabled = false,
 			},
+            latex = {
+                enabled = false,
+            }
 		})
 	end,
 }
