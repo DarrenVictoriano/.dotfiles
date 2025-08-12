@@ -244,6 +244,7 @@ function zsh-funcs() {
 # Add custom Alias and Functions if exist
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 [ -f ~/.zsh_functions ] && source ~/.zsh_functions
+[ -f ~/.tokyonight_storm ] && source ~/.tokyonight_storm
 
 
 #### FZF customs ####
