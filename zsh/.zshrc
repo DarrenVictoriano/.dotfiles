@@ -238,7 +238,9 @@ function zsh-funcs() {
 # Add custom Alias and Functions if exist
 [ -f $HOME/.config/zsh/zsh_aliases ] && source $HOME/.config/zsh/zsh_aliases
 [ -f $HOME/.config/zsh/zsh_functions ] && source $HOME/.config/zsh/zsh_functions
-[ -f $HOME/.config/zsh/tokyonight_storm ] && source $HOME/.config/zsh/tokyonight_storm
+
+# FZF Theme
+[ -f $HOME/.config/zsh/fzf_tokyonight_storm ] && source $HOME/.config/zsh/fzf_tokyonight_storm
 
 
 #### FZF customs ####
