@@ -112,7 +112,6 @@ RPROMPT='%{$fg[blue]%}($(kubectl_prompt))%{$reset_color%}'
 eval $(thefuck --alias)
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
-source $HOME/.config/zsh/fzf-git.sh
 # zoxide for better cd
 eval "$(zoxide init zsh)"
 
@@ -242,8 +241,8 @@ function zsh-funcs() {
 ### End of Functions ####
 
 # Add custom Alias and Functions if exist
-[ -f $HOME/.config/zsh/.zsh_aliases ] && source $HOME/.config/zsh/.zsh_aliases
-[ -f $HOME/.config/zsh/.zsh_functions ] && source $HOME/.config/zsh/.zsh_functions
+[ -f $HOME/.config/zsh/zsh_aliases ] && source $HOME/.config/zsh/zsh_aliases
+[ -f $HOME/.config/zsh/zsh_functions ] && source $HOME/.config/zsh/zsh_functions
 [ -f $HOME/.config/zsh/tokyonight_storm ] && source $HOME/.config/zsh/tokyonight_storm
 
 
@@ -305,3 +304,6 @@ eval "$(pyenv init -)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# fzf-git
+source ~/.config/zsh/fzf-git.sh
