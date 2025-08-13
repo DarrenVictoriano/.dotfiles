@@ -112,7 +112,8 @@ RPROMPT='%{$fg[blue]%}($(kubectl_prompt))%{$reset_color%}'
 eval $(thefuck --alias)
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
-source ~/fzf-git.sh/fzf-git.sh
+# fzf-git
+source $HOME/.config/zsh/fzf-git.sh
 # zoxide for better cd
 eval "$(zoxide init zsh)"
 
@@ -128,15 +129,8 @@ export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git
 # FZF: let fzf have preview and use eza for dir and bat for files
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 # export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
-export FZF_CTRL_T_OPTS="--preview '~/.zsh_fzf_preview.sh {}'"
+export FZF_CTRL_T_OPTS="--preview '$HOME/.config/zsh/zsh_fzf_preview.sh {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
-# FZF: catppuccin theme
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
---color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
---color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
---color=selected-bg:#494d64 \
---multi"
 
 # bat theme
 export BAT_THEME="Catppuccin Macchiato"
@@ -150,7 +144,7 @@ alias la='ls -a'
 alias cat='bat'
 alias lt='eza --tree --level=3 --git --group-directories-first'
 alias lta='lt -a'
-alias ff="fzf --preview '~/.zsh_fzf_preview.sh {}'"
+alias ff="fzf --preview '$HOME/.config/zsh/zsh_fzf_preview.sh {}'"
 alias fd='fd -H --exclude .git'
 alias icat='kitty icat'
 alias cd='z'
@@ -242,9 +236,11 @@ function zsh-funcs() {
 ### End of Functions ####
 
 # Add custom Alias and Functions if exist
-[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
-[ -f ~/.zsh_functions ] && source ~/.zsh_functions
-[ -f ~/.tokyonight_storm ] && source ~/.tokyonight_storm
+[ -f $HOME/.config/zsh/zsh_aliases ] && source $HOME/.config/zsh/zsh_aliases
+[ -f $HOME/.config/zsh/zsh_functions ] && source $HOME/.config/zsh/zsh_functions
+
+# FZF Theme
+[ -f $HOME/.config/zsh/fzf_tokyonight_storm ] && source $HOME/.config/zsh/fzf_tokyonight_storm
 
 
 #### FZF customs ####
@@ -305,3 +301,5 @@ eval "$(pyenv init -)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
