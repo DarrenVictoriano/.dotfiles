@@ -112,6 +112,8 @@ RPROMPT='%{$fg[blue]%}($(kubectl_prompt))%{$reset_color%}'
 eval $(thefuck --alias)
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+# fzf-git
+source ~/.config/zsh/fzf-git.sh
 # zoxide for better cd
 eval "$(zoxide init zsh)"
 
@@ -129,13 +131,6 @@ show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head
 # export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 export FZF_CTRL_T_OPTS="--preview '$HOME/.config/zsh/zsh_fzf_preview.sh {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
-# FZF: catppuccin theme
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
---color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
---color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
---color=selected-bg:#494d64 \
---multi"
 
 # bat theme
 export BAT_THEME="Catppuccin Macchiato"
@@ -305,5 +300,4 @@ eval "$(pyenv init -)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# fzf-git
-source ~/.config/zsh/fzf-git.sh
+
