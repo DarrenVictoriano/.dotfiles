@@ -113,7 +113,7 @@ eval $(thefuck --alias)
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 # fzf-git
-source ~/.config/zsh/fzf-git.sh
+source $HOME/.config/zsh/fzf-git.sh
 # zoxide for better cd
 eval "$(zoxide init zsh)"
 
