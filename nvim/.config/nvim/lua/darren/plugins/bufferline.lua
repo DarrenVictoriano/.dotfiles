@@ -5,7 +5,7 @@ return {
 	opts = {
 		options = {
 			mode = "buffers",
-			separator_style = "slope",
+			separator_style = "slant",
 		},
 	},
 }
