@@ -9,6 +9,8 @@ return {
 			typescript = { "eslint_d" },
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
+			cpp = { "cpplint" },
+			c = { "cpplint" },
 			-- svelte = { "eslint_d" },
 			python = { "pylint" },
 			-- TODO: add other lint
