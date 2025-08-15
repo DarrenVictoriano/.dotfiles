@@ -9,14 +9,13 @@ return {
 			typescript = { "eslint_d" },
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
+			cmake = { "cmakelint" },
 			cpp = { "cpplint" },
 			c = { "cpplint" },
-			-- svelte = { "eslint_d" },
 			python = { "pylint" },
 			-- TODO: add other lint
 			-- mypy, need to figure out how to add virtual env to mypy
 			-- robot
-			-- clang
 			-- go
 		}
 
