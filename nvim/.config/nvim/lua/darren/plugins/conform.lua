@@ -10,8 +10,8 @@ return {
 				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
-                cpp = {"clang_format"},
-                c = {"clang_format"},
+				cpp = { "clang_format" },
+				c = { "clang_format" },
 				css = { "prettier" },
 				html = { "prettier" },
 				json = { "prettier" },
@@ -19,10 +19,6 @@ return {
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
-				-- python = { "isort", "black" },
-				-- TODO: add formatters
-				-- cpp
-				-- robot
 			},
 			formatters = {
 				prettier = {
@@ -31,6 +27,11 @@ return {
 						"always",
 						"--print-width",
 						"80",
+					},
+				},
+				clang_format = {
+					prepend_args = {
+						"--style=Google",
 					},
 				},
 			},

@@ -36,12 +36,13 @@ return {
 				"lua_ls",
 				"pyright",
 				"clangd",
-                "rust_analyzer",
+				"rust_analyzer",
 				"robotframework_ls",
 				"bashls", -- requires rust
 				-- "omnisharp",
 				"marksman",
 				"yamlls",
+				"cmake",
 				-- "csharp_ls",
 				-- "gdscript",
 				-- "gopls",
@@ -54,8 +55,9 @@ return {
 				"stylua", -- lua formatter
 				"ruff", -- python linter/formatter (fast, coded in Rust)
 				"shellharden", -- bash linter
-                "cpplint", -- c++ linter
-                "clang-format", -- c++ formatter
+				"cpplint", -- c++ linter
+				"clang-format", -- c++ formatter
+				"cmakelint", -- cmake lint
 				-- "isort", -- python formatter
 				-- "black", -- python formatter
 				-- "pylint", -- python linter
