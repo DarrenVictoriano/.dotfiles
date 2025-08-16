@@ -299,6 +299,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
+# C++ package manager path
 export VCPKG_ROOT="$HOME/code/cpp/vcpkg/vcpkg"
 export PATH="$VCPKG_ROOT:$PATH"
 
