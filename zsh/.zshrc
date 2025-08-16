@@ -300,7 +300,7 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
 # C++ package manager path
-export VCPKG_ROOT="$HOME/code/cpp/vcpkg/vcpkg"
+export VCPKG_ROOT="$HOME/code/cpp/vcpkg"
 export PATH="$VCPKG_ROOT:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
