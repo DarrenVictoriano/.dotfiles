@@ -1,5 +1,15 @@
 local api = vim.api
 
+-- C++ tab settings
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "c", "cpp", "h", "hpp" },
+	callback = function()
+		vim.bo.shiftwidth = 2
+		vim.bo.tabstop = 2
+		vim.bo.expandtab = true
+	end,
+})
+
 -- Enable soft wrap and word-wise navigation in markdown
 api.nvim_create_autocmd("FileType", {
 	pattern = { "markdown", "text", "gitcommit" },
@@ -38,7 +48,7 @@ api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Automatically save the buffer when:
--- TextChages in Normal mode 
+-- TextChages in Normal mode
 -- Leave out of the Insert Mode
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 	callback = function()
