@@ -1,14 +1,14 @@
 local api = vim.api
 
--- C++ tab settings
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "c", "cpp", "h", "hpp" },
-	callback = function()
-		vim.bo.shiftwidth = 2
-		vim.bo.tabstop = 2
-		vim.bo.expandtab = true
-	end,
-})
+-- -- C++ tab settings for Google Style
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = { "c", "cpp", "h", "hpp" },
+-- 	callback = function()
+-- 		vim.bo.shiftwidth = 2
+-- 		vim.bo.tabstop = 2
+-- 		vim.bo.expandtab = true
+-- 	end,
+-- })
 
 -- Enable soft wrap and word-wise navigation in markdown
 api.nvim_create_autocmd("FileType", {

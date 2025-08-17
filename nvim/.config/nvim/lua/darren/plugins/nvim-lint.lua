@@ -19,6 +19,9 @@ return {
 			-- go
 		}
 
+		-- Override cpplint command to ignore Google sytle Braces warning
+		lint.linters.cpplint.args = { "--filter=-whitespace/braces" }
+
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
