@@ -27,6 +27,8 @@ return {
 						"always",
 						"--print-width",
 						"80",
+						"--tab-width",
+						"4",
 					},
 				},
 				clang_format = {
