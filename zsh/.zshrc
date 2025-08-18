@@ -139,10 +139,10 @@ export BAT_THEME="Catppuccin Macchiato"
 #### Alias ####
 # For a full list of active aliases, run `alias`.
 alias refresh='source ~/.zshrc'
-alias ls='eza -lh --group-directories-first --icons=auto'
+alias ls='eza -lh --group-directories-first --icons=auto --sort=extension'
 alias la='ls -a'
 alias cat='bat'
-alias lt='eza --tree --level=3 --git --group-directories-first'
+alias lt='eza --tree --level=3 --git --group-directories-first --sort=extension'
 alias lta='lt -a'
 alias ff="fzf --preview '$HOME/.config/zsh/zsh_fzf_preview.sh {}'"
 alias fd='fd -H --exclude .git'
