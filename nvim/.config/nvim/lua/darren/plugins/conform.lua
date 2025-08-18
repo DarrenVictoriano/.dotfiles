@@ -27,11 +27,13 @@ return {
 						"always",
 						"--print-width",
 						"80",
+						"--tab-width",
+						"4",
 					},
 				},
 				clang_format = {
 					prepend_args = {
-						"--style=Google",
+						"--style=Microsoft",
 					},
 				},
 			},
