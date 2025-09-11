@@ -73,16 +73,16 @@ return {
 				keymap.set("n", "<leader>fdc", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
 				-- show diagnostics for line
-				opts.desc = "Find [L]ine Diagnostics"
-				keymap.set("n", "<leader>fdl", vim.diagnostic.open_float, opts)
+				opts.desc = "Show Line Diagnostics"
+				keymap.set("n", "<leader>xK", vim.diagnostic.open_float, opts)
 
 				-- jump to previous diagnostic in buffer
 				opts.desc = "Go to previous diagnostic"
-				keymap.set("n", "<leader>fdp", vim.diagnostic.goto_prev, opts)
+				keymap.set("n", "<leader>xp", vim.diagnostic.goto_prev, opts)
 
 				-- jump to next diagnostic in buffer
 				opts.desc = "Go to next diagnostic"
-				keymap.set("n", "<leader>fdn", vim.diagnostic.goto_next, opts)
+				keymap.set("n", "<leader>xn", vim.diagnostic.goto_next, opts)
 
 				-- mapping to restart lsp if necessary
 				opts.desc = "Restart L[S]P"
