@@ -54,11 +54,12 @@ return {
 		keymap.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, { desc = "Find [S]tring Current Buffer" })
 		keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Find current [W]ord" })
 		keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Find by [G]rep" })
-		keymap.set("n", "<leader>fdw", builtin.diagnostics, { desc = "Find Diagnostics for [W]orkspace" })
 		keymap.set("n", "<leader>fr", builtin.resume, { desc = "Find [R]esume" })
 		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find [T]odo Comments" })
 		keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = 'Find Recent Files ("." for repeat)' })
 		keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+
+		keymap.set("n", "<leader>fdw", builtin.diagnostics, { desc = "Find Diagnostics for [W]orkspace" })
 
 		-- Shortcut for searching your Neovim configuration files
 		keymap.set("n", "<leader>fn", function()
