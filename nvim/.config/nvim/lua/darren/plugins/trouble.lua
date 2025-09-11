@@ -6,6 +6,7 @@ return {
 
 		-- Map <CR> to jump_close inside Trouble windows
 		keys = {
+			["<cr>"] = "jump_close",
 			["<CR>"] = "jump_close",
 		},
 	},
