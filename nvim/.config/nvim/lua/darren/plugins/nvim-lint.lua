@@ -20,7 +20,7 @@ return {
 		}
 
 		-- Override cpplint command to ignore Google sytle Braces warning
-		lint.linters.cpplint.args = { "--filter=-whitespace/braces" }
+		lint.linters.cpplint.args = { "--filter=-whitespace/braces,-whitespace/indent" }
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
