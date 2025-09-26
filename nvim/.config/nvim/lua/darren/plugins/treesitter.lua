@@ -55,6 +55,7 @@ return {
 				"vim",
 				"xml",
 				"yaml",
+                "scala",
 			},
 			incremental_selection = {
 				enable = true,
