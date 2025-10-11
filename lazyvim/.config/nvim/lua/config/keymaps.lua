@@ -1,5 +1,9 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
+
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
 -- Remove LazyVim's Better Up/Down keymaps
 -- vim.keymap.del({ "n", "x" }, "j")
@@ -78,24 +82,24 @@ vim.keymap.del("n", "<leader>l")
 vim.keymap.del("n", "<leader>fn")
 
 -- Remove LazyVim's Location List keymap
-vim.keymap.del("n", "<leader>xl")
+-- vim.keymap.del("n", "<leader>xl")
 
 -- Remove LazyVim's Quickfix List keymaps
-vim.keymap.del("n", "<leader>xq")
-vim.keymap.del("n", "[q")
-vim.keymap.del("n", "]q")
+-- vim.keymap.del("n", "<leader>xq")
+-- vim.keymap.del("n", "[q")
+-- vim.keymap.del("n", "]q")
 
 -- Remove LazyVim's Format keymap
-vim.keymap.del({ "n", "v" }, "<leader>cf")
+-- vim.keymap.del({ "n", "v" }, "<leader>cf")
 
 -- Remove LazyVim's Diagnostic keymaps
 vim.keymap.del("n", "<leader>cd")
-vim.keymap.del("n", "]d")
-vim.keymap.del("n", "[d")
-vim.keymap.del("n", "]e")
-vim.keymap.del("n", "[e")
-vim.keymap.del("n", "]w")
-vim.keymap.del("n", "[w")
+-- vim.keymap.del("n", "]d")
+-- vim.keymap.del("n", "[d")
+-- vim.keymap.del("n", "]e")
+-- vim.keymap.del("n", "[e")
+-- vim.keymap.del("n", "]w")
+-- vim.keymap.del("n", "[w")
 
 -- Remove LazyVim's Toggle Option keymaps
 vim.keymap.del("n", "<leader>uf")
@@ -128,7 +132,7 @@ vim.keymap.del({ "n", "x" }, "<leader>gB")
 vim.keymap.del({ "n", "x" }, "<leader>gY")
 
 -- Remove LazyVim's Quit keymap
-vim.keymap.del("n", "<leader>qq")
+-- vim.keymap.del("n", "<leader>qq")
 
 -- Remove LazyVim's Inspect keymaps
 vim.keymap.del("n", "<leader>ui")
@@ -183,3 +187,53 @@ map(
   { desc = "Redraw / Clear hlsearch / Diff Update" }
 )
 
+-- diagnostic
+map("n", "<leader>xd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+
+-- use jk to exit insert mode
+map("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+
+-- Move by visual line if no count is given
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
+-- use Enter instead of za to fold text
+map("n", "<CR>", "za", { noremap = true, silent = true })
+
+map("n", "x", '"_x', { desc = "Delete single character without yanking" })
+map("x", "p", [["_dP]], { desc = "Paste without yanking" })
+
+-- window management
+map("n", "<leader>w|", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
+map("n", "<leader>w-", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+map("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+map("n", "<leader>wd", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
+map("n", "<leader>wx", "<cmd>bwipeout<CR>", { desc = "Close current buffer" }) -- close current split window
+
+-- save and quit buffer
+map("n", "<leader>ww", ":w<CR>", { desc = "Save Buffer" })
+map("n", "<leader>wq", ":wq<CR>", { desc = "Save and Quit Buffer" })
+-- map("n", "<leader>qq", ":wqa<CR>", { desc = "Save and Quit All" })
+
+-- tab management
+map("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+map("n", "<leader>tx", "<cmd>bwipeout<CR>", { desc = "Close current tab" }) -- close current tab
+map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+map("n", "<leader>tl", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
+map("n", "<leader>th", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+
+-- buffer management
+-- map("n", "L", "<cmd>bnext<CR>", { desc = "Go to next buffer", noremap = true })
+-- map("n", "H", "<cmd>bprevious<CR>", { desc = "Go to previous buffer", noremap = true })
+
+-- scroll half screen and center
+map("n", "<C-d>", "<C-d>zz", { desc = "Move down half screen" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Move up half screen" })
+
+-- scroll one full screen and center
+map("n", "<C-f>", "<C-f>zz", { desc = "Move down one full screen" })
+map("n", "<C-b>", "<C-b>zz", { desc = "Move down one full screen" })
+
+-- Search next/prev and center + open folds
+map("n", "n", "nzzzv", { desc = "Search next and center" })
+map("n", "N", "Nzzzv", { desc = "Search previous and center" })
