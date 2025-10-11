@@ -73,16 +73,16 @@ return {
 				keymap.set("n", "<leader>fdc", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
 				-- show diagnostics for line
-				opts.desc = "Find [L]ine Diagnostics"
-				keymap.set("n", "<leader>fdl", vim.diagnostic.open_float, opts)
+				opts.desc = "Show Line Diagnostics"
+				keymap.set("n", "<leader>xK", vim.diagnostic.open_float, opts)
 
 				-- jump to previous diagnostic in buffer
 				opts.desc = "Go to previous diagnostic"
-				keymap.set("n", "<leader>fdp", vim.diagnostic.goto_prev, opts)
+				keymap.set("n", "<leader>xp", vim.diagnostic.goto_prev, opts)
 
 				-- jump to next diagnostic in buffer
 				opts.desc = "Go to next diagnostic"
-				keymap.set("n", "<leader>fdn", vim.diagnostic.goto_next, opts)
+				keymap.set("n", "<leader>xn", vim.diagnostic.goto_next, opts)
 
 				-- mapping to restart lsp if necessary
 				opts.desc = "Restart L[S]P"
@@ -194,6 +194,47 @@ return {
 							},
 						},
 					},
+				})
+			end,
+			["rust_analyzer"] = function()
+				lspconfig["rust_analyzer"].setup({
+					capabilities = capabilities,
+					diagnostics = {
+						enable = true,
+					},
+				})
+			end,
+			["cmake"] = function()
+				lspconfig["cmake"].setup({
+					capabilities = capabilities,
+				})
+			end,
+			["clangd"] = function()
+				lspconfig["clangd"].setup({
+					capabilities = capabilities,
+					cmd = {
+						"clangd",
+						"--background-index",
+						"--clang-tidy",
+						"--header-insertion=iwyu",
+						"--completion-style=detailed",
+						"--function-arg-placeholders",
+						"--fallback-style=Microsoft",
+					},
+					init_options = {
+						usePlaceholders = true,
+						completeUnimported = true,
+						clangdFileStatus = true,
+					},
+					root_dir = lspconfig.util.root_pattern(
+						".clangd",
+						".clang-tidy",
+						".clang-format",
+						"compile_commands.json",
+						"compile_flags.txt",
+						"configure.ac",
+						".git"
+					),
 				})
 			end,
 			["pyright"] = function()

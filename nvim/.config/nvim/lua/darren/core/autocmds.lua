@@ -38,7 +38,7 @@ api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Automatically save the buffer when:
--- TextChages in Normal mode 
+-- TextChages in Normal mode
 -- Leave out of the Insert Mode
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 	callback = function()

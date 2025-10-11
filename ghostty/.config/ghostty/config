@@ -1,6 +1,6 @@
 shell-integration = zsh
 font-family = "MesloLGS NF"
-theme = catppuccin-macchiato
+theme = "TokyoNight Storm"
 background-opacity = 1
 
 cursor-style = block

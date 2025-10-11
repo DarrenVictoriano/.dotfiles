@@ -9,14 +9,18 @@ return {
 			typescript = { "eslint_d" },
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
-			-- svelte = { "eslint_d" },
+			cmake = { "cmakelint" },
+			cpp = { "cpplint" },
+			c = { "cpplint" },
 			python = { "pylint" },
 			-- TODO: add other lint
 			-- mypy, need to figure out how to add virtual env to mypy
 			-- robot
-			-- clang
 			-- go
 		}
+
+		-- Override cpplint command to ignore Google sytle Braces warning
+		lint.linters.cpplint.args = { "--filter=-whitespace/braces,-whitespace/indent" }
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 

@@ -7,7 +7,6 @@ return {
 	end,
 	opts = {
 		-- your configuration comes here
-        -- preset = "modern",
         preset = "helix",
 		icons = {
 			-- set icon mappings to true if you have a Nerd Font
