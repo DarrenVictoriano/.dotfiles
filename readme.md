@@ -10,7 +10,6 @@ This script automates the installation and configuration of my development envir
 ## Prerequisites
 
 - Xcode Commandline Tool
-- ~~iTerm2~~
 
 ## Installation
 
