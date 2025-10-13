@@ -7,7 +7,7 @@ TPM_DIR="$HOME/.tmux/plugins/tpm"
 clone_dotfiles() {
   if [ ! -d "$DOTFILES_DIR" ]; then
     echo "Cloning dotfiles repository..."
-    git clone https://github.com/DarrenVictoriano/.dotfiles.git "$DOTFILES_DIR"
+    git clone --recurse-submodule https://github.com/DarrenVictoriano/.dotfiles.git "$DOTFILES_DIR"
     echo "Dotfiles repository cloned into $DOTFILES_DIR."
   else
     echo "Dotfiles repository is already cloned."
@@ -84,7 +84,7 @@ dotfiles_list=(
   "git:.gitconfig"
   "tmux:.tmux.conf"
   "bat:.config/bat"
-  "nvim:.config/nvim"
+  "lazynvim:.config/nvim"
   "karabiner:.config/karabiner"
 )
 
